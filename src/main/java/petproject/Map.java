@@ -11,79 +11,37 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Map {
-    private Entity[][] map;
+    int x;
+    int y;
+    private Entity[][] map = new Entity[x][y];
 
-    public void initEmptyMap(int width, int height) {
-        this.map = new Entity[width][height];
-        for (int x = 0; x < map.length; x++) {
-            for (int y = 0; y < map[x].length; y++) {
-                map[x][y] = new Ground(new Coordinates(x, y));
-            }
-        }
+    public Map(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    /**
-     * Fill given map with all the available in simulation objects in random way
-     * @param map to fill with objects
-     * @return map filled with objects
-     */
-    public Entity[][] fillMapWithRandomObjects(Entity[][] map) {
-        int[] objectsPool = createPoolOfObjectsForMap(map);
-        for (int i = 0; i < objectsPool.length; i++) {
-            for (int j = 0; j < objectsPool[i]; j++) {
-                Entity entity = null;
-                if (i == 0) {
-                    entity = new Grass();
-                }
-                if (i == 1) {
-                    entity = new Herbivore();
-                }
-                if (i == 2) {
-                    entity = new Predator();
-                }
-                if (i == 3) {
-                    entity = new Tree();
-                }
-                if (i == 4) {
-                    entity = new Rock();
-                }
-                Coordinates randomCoordinates = randomizeCoordinatesOfObject(entity);
-            }
-        }
+    public Map(){
+        this.x = 10;
+        this.y = 10;
+    }
 
+    public Entity[][] getMap() {
         return map;
     }
 
-    /**
-     * Create a pool of the objects that should be placed into the map
-     * @param map for which pool should be created
-     * @return array of ints in which each of the number represent
-     * amount of objects that should be created in the following order -
-     * Grass, Herbivore, Predator, Tree, Rock
-     */
-    private int[] createPoolOfObjectsForMap(Entity[][] map) {
-        int x = map.length;
-        int y = map[0].length;
-        int mapArea = x * y;
-
-        int amountOfGrass = mapArea / 2;
-        int amountOfHerbivores = amountOfGrass / 10;
-        int amountOffPredators = amountOfHerbivores / 10;
-        int amountOfTress = amountOfGrass / 10;
-        int amountOfRocks = amountOfGrass / 10;
-
-        return new int[]{amountOfGrass, amountOfHerbivores, amountOffPredators, amountOfTress, amountOfRocks};
+    public void setMap(Entity[][] map) {
+        this.map = map;
     }
 
-    private Coordinates randomizeCoordinatesOfObject(Entity entity) {
-        int xUpperBound = map.length;
-        int yUpperBound = map[0].length;
-
-        Random random = new Random();
-
-        int randomX = random.nextInt(xUpperBound);
-        int randomY = random.nextInt(yUpperBound);
-
-        return new Coordinates(randomX, randomY);
+    /*
+     * Adds an object to the map.
+     * <p>
+     * This method takes an `Entity` object and adds it to the map at the coordinates specified by the object's `Coordinates`. The x and y values of the `Coordinates` are used to determine the position in the map where the object will be added.
+     *
+     * @param object The `Entity` object to be added to the map.
+     */
+    public void addObject(Entity object) {
+        Coordinates coordinates = object.getCoordinates();
+        map[coordinates.x][coordinates.y] = object;
     }
 }
