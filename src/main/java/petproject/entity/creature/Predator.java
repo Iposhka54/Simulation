@@ -3,7 +3,6 @@ package petproject.entity.creature;
 import petproject.BreadthFirstSearch;
 import petproject.Coordinates;
 import petproject.entity.Entity;
-import petproject.entity.Grass;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class Predator extends Creature {
         List<Coordinates> wayToObject = breadthFirstSearch.findClosestObjectCoordinates(this.getCoordinates(), new Herbivore());
 
         if (wayToObject.size() == 1) {
-            Coordinates coordinatesOfHerbivore = wayToObject.get(0);
+            Coordinates coordinatesOfHerbivore = wayToObject.getFirst();
             Entity[][] map = simulation.getMap().getMap();
             Herbivore herbivore = (Herbivore) map[coordinatesOfHerbivore.getX()][coordinatesOfHerbivore.getY()];
             int herbivoreHp = herbivore.getHp();
