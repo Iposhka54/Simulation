@@ -1,4 +1,4 @@
-package entity;
+package petproject.entity;
 
 public abstract class Entity {
 }

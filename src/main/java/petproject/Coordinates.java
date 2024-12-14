@@ -1,3 +1,5 @@
+package petproject;
+
 public class Coordinates {
     int x, y;
 

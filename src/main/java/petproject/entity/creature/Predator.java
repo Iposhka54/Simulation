@@ -1,4 +1,4 @@
-package entity.creature;
+package petproject.entity.creature;
 
 public class Predator extends Creature {
     @Override

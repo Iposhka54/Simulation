@@ -1,6 +1,6 @@
-package entity.creature;
+package petproject.entity.creature;
 
-import entity.Entity;
+import petproject.entity.Entity;
 
 public abstract class Creature extends Entity {
     int hp;

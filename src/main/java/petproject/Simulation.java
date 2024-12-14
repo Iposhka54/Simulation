@@ -1,3 +1,5 @@
+package petproject;
+
 import java.util.List;
 
 public class Simulation {
