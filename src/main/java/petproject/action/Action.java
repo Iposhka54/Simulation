@@ -1,4 +1,4 @@
-package petproject;
+package petproject.action;
 
 public abstract class Action {
 
