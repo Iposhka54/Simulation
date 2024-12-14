@@ -1,10 +1,10 @@
-public record Coordinates(int row, int col) {
-    public Coordinates add(int row, int col) {
-        return new Coordinates(this.row + row, this.col + col);
+public class Coordinates {
+    int x, y;
+
+    public Coordinates(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%d, %d", row, col);
-    }
+    public Coordinates() {}
 }
