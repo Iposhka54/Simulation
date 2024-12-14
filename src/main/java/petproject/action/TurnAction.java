@@ -19,5 +19,6 @@ public class TurnAction extends Action {
                 }
             }
         }
+        mapObj.refreshMap();
     }
 }

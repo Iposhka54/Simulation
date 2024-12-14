@@ -1,7 +1,5 @@
-import petproject.Coordinates;
-import petproject.Main;
-import petproject.Map;
-import petproject.Simulation;
+package petproject;
+
 import petproject.entity.Entity;
 import petproject.entity.stationary.Stationary;
 

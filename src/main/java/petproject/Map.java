@@ -46,4 +46,12 @@ public class Map {
         Coordinates coordinates = object.getCoordinates();
         map[coordinates.getX()][coordinates.getY()] = object;
     }
+
+    public void refreshMap(){
+        for (Entity[] entities : map) {
+            for (Entity entity : entities) {
+                map[entity.getCoordinates().getX()][entity.getCoordinates().getY()] = entity;
+            }
+        }
+    }
 }
