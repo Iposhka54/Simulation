@@ -9,31 +9,28 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Simulation {
+    private Map map;
     private final InitAction initAction = new InitAction();
     private final TurnAction turnAction = new TurnAction();
-    private Map map;
+    private Renderer renderer;
+    private int movesCounter = 0;
     private boolean isGameStopped = false;
 
     void nextTurn(){
-
+        turnAction.processCreatureMoves(map);
     }
 
-    void startSimulation() throws InterruptedException {
-        map = initAction.initMap();
+    void startSimulation(){
+        initAction.initMap();
+
         while (!isGameStopped) {
-            for (Entity[] entityRow : map.getMap()) {
-                for (Entity entity : entityRow) {
-                    System.out.print(entity.toString() + " ");
-                }
-                System.out.println();
-            }
             nextTurn();
-            TimeUnit.SECONDS.sleep(1);
+            movesCounter++;
         }
     }
 
     void stopSimulation(){
-        
+        isGameStopped = true;
     }
 
     public Map getMap() {
