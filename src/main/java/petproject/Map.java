@@ -1,14 +1,6 @@
 package petproject;
 
 import petproject.entity.Entity;
-import petproject.entity.Grass;
-import petproject.entity.creature.Herbivore;
-import petproject.entity.creature.Predator;
-import petproject.entity.stationary.Rock;
-import petproject.entity.stationary.Tree;
-
-import java.util.Arrays;
-import java.util.Random;
 
 public class Map {
     int x;
@@ -22,8 +14,8 @@ public class Map {
     }
 
     public Map(){
-        this.x = 10;
-        this.y = 10;
+        this.x = 20;
+        this.y = 20;
         this.map = new Entity[x][y];
     }
 

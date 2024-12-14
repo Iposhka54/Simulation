@@ -1,8 +1,11 @@
 package petproject.action;
 
 import petproject.Map;
+import petproject.Renderer;
 import petproject.entity.Entity;
 import petproject.entity.creature.Creature;
+
+import static petproject.Main.simulation;
 
 public class TurnAction extends Action {
     /**
@@ -20,5 +23,10 @@ public class TurnAction extends Action {
             }
         }
         mapObj.refreshMap();
+    }
+
+    public void renderMap(Map map) {
+        Renderer renderer = simulation.getRenderer();
+        renderer.renderMap(map);
     }
 }
