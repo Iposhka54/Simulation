@@ -20,4 +20,8 @@ public class Simulation {
     void stopSimulation(){
         
     }
+
+    public Map getMap() {
+        return map;
+    }
 }

@@ -44,6 +44,6 @@ public class Map {
      */
     public void addObject(Entity object) {
         Coordinates coordinates = object.getCoordinates();
-        map[coordinates.x][coordinates.y] = object;
+        map[coordinates.getX()][coordinates.getY()] = object;
     }
 }
