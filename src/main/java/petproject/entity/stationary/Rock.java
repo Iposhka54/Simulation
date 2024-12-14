@@ -9,11 +9,9 @@ public class Rock extends Entity {
     public Rock(Coordinates coordinates) {
         this.coordinates = coordinates;
     }
+
     public Rock() {
-        this.coordinates = new Coordinates();
-    }
-    public Coordinates getCoordinates() {
-        return coordinates;
+        coordinates = new Coordinates();
     }
     @Override
     public String toString() {
