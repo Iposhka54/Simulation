@@ -13,16 +13,18 @@ import java.util.Random;
 public class Map {
     int x;
     int y;
-    private Entity[][] map = new Entity[x][y];
+    private Entity[][] map;
 
     public Map(int x, int y) {
         this.x = x;
         this.y = y;
+        this.map = new Entity[x][y];
     }
 
     public Map(){
         this.x = 10;
         this.y = 10;
+        this.map = new Entity[x][y];
     }
 
     public Entity[][] getMap() {

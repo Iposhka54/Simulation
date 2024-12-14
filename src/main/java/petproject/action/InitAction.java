@@ -12,9 +12,16 @@ import petproject.entity.stationary.Tree;
 import java.util.HashMap;
 import java.util.Random;
 
-public abstract class InitAction extends Action {
+public class InitAction extends Action {
     private Map map;
 
+    /**
+     * Initializes the map by creating a pool of objects and adding them to the map.
+     * <p>
+     * This method creates a `Map` object and then generates a pool of objects (Grass, Herbivore, Predator, Tree, Rock) using the `createObjectPoolForMap` method. The objects in the pool are then assigned random coordinates using the `assignRandomCoordinatesToEntity` method, and finally added to the `Map` object using the `addObject` method. The fully initialized `Map` object is then returned.
+     *
+     * @return A fully initialized `Map` object containing a pool of objects.
+     */
     public Map InitMap(){
         map = new Map();
 
